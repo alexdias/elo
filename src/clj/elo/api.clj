@@ -20,6 +20,7 @@
             [ring.middleware.resource :as resources]
             [ring.util.io :as ring-io]
             [ring.util.http-response :as hr]
+            [ring.middleware.cljsjs :refer [wrap-cljsjs]]
             [ring.middleware.oauth2 :as oauth2]
             [taoensso.timbre :as timbre :refer [log info debug]])
   (:import (java.util UUID)))
@@ -260,6 +261,7 @@
       wrap-keyword-params
       wrap-json-params
       wrap-json-response
+      wrap-cljsjs
       check-token
       log-request
       (wrap-oauth2 oauth2-config)))

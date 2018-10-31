@@ -19,7 +19,7 @@
    [:script {:src "https://cdn.jsdelivr.net/npm/vega@4.2.0"}]
    [:script {:src "https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc6"}]
    [:script {:src "https://cdn.jsdelivr.net/npm/vega-embed@3.19.2"}]
-   [:link {:href (cache-buster "/css/react-datepicker.css")
+   [:link {:href "/cljsjs/react-datepicker/production/react-datepicker.min.inc.css"
            :rel "stylesheet"
            :type "text/css"}]
 
