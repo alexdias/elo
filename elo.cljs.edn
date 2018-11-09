@@ -1,3 +1,4 @@
-{:main elo.core
+{:main elo.dev
  :preloads [day8.re-frame-10x.preload]
- :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}}
+ :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+ :aot-cache true}
