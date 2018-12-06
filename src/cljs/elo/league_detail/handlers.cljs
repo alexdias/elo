@@ -375,7 +375,6 @@
 
             (fn [results]
               (->> results
-
                    (medley/map-vals games/longest-winning-subseq)
                    (sort-by #(- (second %))))))
 
@@ -388,3 +387,18 @@
                    (medley/map-vals #(map :ranking %))
                    (medley/map-vals games/highest-points-subseq)
                    (sort-by #(- (second %))))))
+
+(defn winning-percent
+  [results]
+  (let [freq (frequencies results)
+        cent-fn #(int (* 100 (/ (% freq) (count results))))]
+
+    (zipmap [:w :d :l] (map cent-fn [:w :d :l]))))
+
+(rf/reg-sub ::best-percents
+            :<- [::results]
+
+            (fn [results]
+              (->> results
+                   (medley/map-vals winning-percent)
+                   (sort-by (comp :l :d :w second)))))
